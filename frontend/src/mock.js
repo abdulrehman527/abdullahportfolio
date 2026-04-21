@@ -1,17 +1,17 @@
 // Mock data for video editor portfolio — replace with backend API later
 
 export const profile = {
-  name: "AUTO LEVELS",
-  firstName: "Kai",
-  lastName: "Rivera",
-  role: "Video Editor & Colorist",
+  name: "Mehar Abdullah",
+  firstName: "Mehar",
+  lastName: "Abdullah",
+  role: "Video Editor, Colorist & Social Media Brand Manager",
   tagline: "Turning raw footage into cinematic stories.",
   longTagline:
     "I craft emotion-driven edits for brands, artists and filmmakers — balancing rhythm, color and silence to make frames feel alive.",
-  location: "Based in Los Angeles  ·  Working worldwide",
-  experience: "8+ years",
-  email: "hello@autolevels.studio",
-  phone: "+1 (323) 555-0142",
+  location: "Based in Lahore  ·  Working worldwide",
+  experience: "3+ years",
+  email: "mabdullahnadeem575@gmail.com",
+  phone: "+92 (328) 1005155",
   availability: "Taking bookings for Q3 · 2025",
   socials: {
     youtube: "https://www.youtube.com/c/autolevels",

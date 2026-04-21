@@ -31,7 +31,7 @@ const Hero = () => {
           <div className="lg:col-span-8 fade-up">
             <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 text-[11px] font-mono tracking-[0.14em] text-teal-200 mb-8">
               <Sparkles className="h-3 w-3" />
-              VIDEO EDITOR — COLORIST — STORY CUTTER
+              VIDEO EDITOR — COLORIST — STORY CUTTER - SOCIAL MEDIA MANAGER
             </div>
             <h1 className="font-display text-[44px] sm:text-[68px] lg:text-[92px] leading-[0.95] text-white">
               Frames that
