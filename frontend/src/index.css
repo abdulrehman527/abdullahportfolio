@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-0: #070b12;
+  --bg-1: #0b1220;
+  --bg-2: #0f1a2e;
+  --slate: #1a2740;
+  --ink: #e6edf7;
+  --ink-dim: #9aa8bf;
+  --ink-mute: #6b7a94;
+  --teal: #5eead4;
+  --cyan: #22d3ee;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+}
+
+html, body, #root {
+  background: var(--bg-0);
+  color: var(--ink);
+  font-family: 'Sora', system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.005em;
+}
+
+body {
+  background:
+    radial-gradient(1000px 600px at 85% -10%, rgba(34, 211, 238, 0.10), transparent 60%),
+    radial-gradient(900px 700px at -10% 30%, rgba(94, 234, 212, 0.06), transparent 55%),
+    linear-gradient(180deg, #070b12 0%, #090e18 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+::selection { background: rgba(34, 211, 238, 0.35); color: #fff; }
+
+.font-display { font-family: 'Syne', 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+.font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+/* Glassmorphism primitives */
+.glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.015) 100%);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--border);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 10px 40px -10px rgba(0, 0, 0, 0.6);
+}
+.glass-strong {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid var(--border-strong);
+}
+.glass-hover {
+  transition: border-color 300ms ease, background-color 300ms ease, transform 400ms cubic-bezier(.2,.8,.2,1);
+}
+.glass-hover:hover {
+  border-color: rgba(94, 234, 212, 0.35);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Grain overlay */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.9'/></svg>");
+}
+
+/* Thin cyan accent line */
+.accent-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(94, 234, 212, 0.5), transparent);
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 40s linear infinite; }
+
+/* Gentle fade-in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 700ms cubic-bezier(.2,.8,.2,1) both; }
+
+/* Spinning teal ring */
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.spin-slow { animation: spin-slow 24s linear infinite; }
+
+/* Utility: focus ring cyan */
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.55), 0 0 0 4px rgba(34, 211, 238, 0.15);
+  border-radius: 10px;
+}
+
+/* Custom scroll */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #070b12; }
+::-webkit-scrollbar-thumb { background: #1a2740; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #22d3ee; }
+
+/* Shadcn defaults retained (unchanged from template) */
+@layer base {
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 214 32% 94%;
+    --card: 222 47% 7%;
+    --card-foreground: 214 32% 94%;
+    --popover: 222 47% 7%;
+    --popover-foreground: 214 32% 94%;
+    --primary: 180 84% 60%;
+    --primary-foreground: 222 47% 5%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 214 32% 94%;
+    --muted: 217 33% 14%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 174 72% 64%;
+    --accent-foreground: 222 47% 5%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 214 32% 94%;
+    --border: 215 25% 18%;
+    --input: 215 25% 18%;
+    --ring: 180 84% 60%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  body { @apply bg-background text-foreground; }
+}
